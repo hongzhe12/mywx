@@ -1,7 +1,5 @@
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "filesrvdlg.h"
 
 MainWindow::MainWindow(QWidget* parent):
     QMainWindow(parent),
@@ -22,8 +20,8 @@ void MainWindow::initMainWindow()
     myUdpPort = 23232;
     myUdpSocket->bind(myUdpPort, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
     connect(myUdpSocket, SIGNAL(readyRead()), this, SLOT(recvAndProcessChatMsg()));
-    myfsrv = new FileSrvDlg(this);
-    connect(myfsrv, SIGNAL(sendFileName(QString)), this, SLOT(getSfileName(QString)));
+    //    myfsrv = new FileSrvDlg(this);
+    //    connect(myfsrv, SIGNAL(sendFileName(QString)), this, SLOT(getSfileName(QString)));
 }
 
 void MainWindow::on_sendPushButton_clicked()
@@ -102,7 +100,7 @@ void MainWindow::recvAndProcessChatMsg()
                 read >> name >> hostip >> rname;
                 if(myname == rname)
                 {
-                    myfsrv->cntRefused();
+                    //                    myfsrv->cntRefused();
                 }
                 break;
         }
@@ -122,12 +120,11 @@ void MainWindow::onLine(QString name, QString time)
         ui->chatTextBrowser->append(tr("%1 %2 上线！").arg(time, name));
         sendChatMsg(OnLine);
     }
-    return;
 }
 
 void MainWindow::offLine(QString name, QString time)
 {
-    int row  = ui->userListTableWidget->findItems(name, Qt::MatchExactly).first()->row();
+    int row = ui->userListTableWidget->findItems(name, Qt::MatchExactly).first()->row();
     ui->userListTableWidget->removeRow(row);
     ui->chatTextBrowser->setTextColor(Qt::gray);
     ui->chatTextBrowser->setCurrentFont(QFont("Times New Roman", 12));
@@ -171,13 +168,8 @@ void MainWindow::closeEvent(QCloseEvent* event)
 }
 
 
-
 void MainWindow::getSfileName(QString fname)
 {
-    myFileName = fname;
-    int row = ui->userListTableWidget->currentRow();
-    QString rmtName = ui->userListTableWidget->item(row, 0)->text();
-    sendChatMsg(SfileName, rmtName);
 }
 
 void MainWindow::on_transPushButton_clicked()
@@ -188,4 +180,3 @@ void MainWindow::recvFileName(QString name, QString hostip, QString rmtname, QSt
 {
 
 }
-

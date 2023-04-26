@@ -6,6 +6,7 @@ LoginDialog::LoginDialog(QWidget* parent) :
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
+    ui->userLineEdit->setText("若鸿雪");
     ui->pwdLineEdit->setFocus(); // 输入焦点初始置于用户框
 }
 

@@ -9,6 +9,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
 # deprecated API in order to know how to port your code away from it.
+TEMPLATE = app
+TARGET = mywx
 DEFINES += QT_DEPRECATED_WARNINGS
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -16,18 +18,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    filesrvdlg.cpp \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
-    filesrvdlg.h \
     logindialog.h \
     mainwindow.h
 
 FORMS += \
-    filesrvdlg.ui \
     logindialog.ui \
     mainwindow.ui
 

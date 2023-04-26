@@ -1,4 +1,5 @@
 
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -12,7 +13,7 @@
 #include "qdom.h"
 
 
-class FileSrvDlg;
+//class FileSrvDlg;
 
 
 namespace Ui
@@ -20,14 +21,7 @@ namespace Ui
 class MainWindow;
 }
 
-enum ChatMsgType
-{
-    ChatMsg, // 聊天内容
-    OnLine,  // 用户上线
-    OffLine, // 用户离线
-    SfileName, // 要传输的文件名
-    RefFile    // 拒收文件
-};
+enum ChatMsgType { ChatMsg, OnLine, OffLine, SfileName, RefFile};
 
 class MainWindow : public QMainWindow
 
@@ -35,7 +29,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget* parent = nullptr);
+    explicit MainWindow(QWidget* parent = 0);
     ~MainWindow();
     void initMainWindow();                                          // 窗口初始化方法
     void onLine(QString name, QString time);                        // 新用户上线方法
@@ -62,7 +56,7 @@ private:
     qint16 myUdpPort;
     QDomDocument myDoc;
     QString myFileName;
-    FileSrvDlg* myfsrv;
+    //    FileSrvDlg* myfsrv;
 };
 
 #endif // MAINWINDOW_H
