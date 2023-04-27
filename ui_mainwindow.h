@@ -57,18 +57,17 @@ public:
         label->setGeometry(QRect(0, 0, 60, 500));
         label->setFrameShape(QFrame::Box);
         label->setFrameShadow(QFrame::Sunken);
-        label->setPixmap(QPixmap(QString::fromUtf8("images/bar.jpg")));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/bar.jpg")));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(60, 0, 250, 65));
         label_2->setFrameShape(QFrame::Box);
         label_2->setFrameShadow(QFrame::Sunken);
-        label_2->setPixmap(QPixmap(QString::fromUtf8("images/search.jpg")));
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/images/search.jpg")));
         userListTableWidget = new QTableWidget(centralWidget);
         if (userListTableWidget->columnCount() < 1)
             userListTableWidget->setColumnCount(1);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        __qtablewidgetitem->setTextAlignment(Qt::AlignCenter);
         userListTableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         userListTableWidget->setObjectName(QString::fromUtf8("userListTableWidget"));
         userListTableWidget->setGeometry(QRect(60, 65, 250, 435));
@@ -86,7 +85,7 @@ public:
         label_3->setGeometry(QRect(310, 0, 432, 65));
         label_3->setFrameShape(QFrame::Box);
         label_3->setFrameShadow(QFrame::Sunken);
-        label_3->setPixmap(QPixmap(QString::fromUtf8("images/title.jpg")));
+        label_3->setPixmap(QPixmap(QString::fromUtf8(":/images/title.jpg")));
         userLabel = new QLabel(centralWidget);
         userLabel->setObjectName(QString::fromUtf8("userLabel"));
         userLabel->setGeometry(QRect(311, 1, 121, 62));
@@ -106,7 +105,7 @@ public:
         label_5->setGeometry(QRect(310, 365, 432, 40));
         label_5->setFrameShape(QFrame::Box);
         label_5->setFrameShadow(QFrame::Sunken);
-        label_5->setPixmap(QPixmap(QString::fromUtf8("images/tool.jpg")));
+        label_5->setPixmap(QPixmap(QString::fromUtf8(":/images/tool.jpg")));
         chatTextEdit = new QTextEdit(centralWidget);
         chatTextEdit->setObjectName(QString::fromUtf8("chatTextEdit"));
         chatTextEdit->setGeometry(QRect(310, 403, 431, 97));

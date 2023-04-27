@@ -24,7 +24,9 @@ SOURCES += \
 
 HEADERS += \
     logindialog.h \
-    mainwindow.h
+    mainwindow.h \
+    ui_logindialog.h \
+    ui_mainwindow.h
 
 FORMS += \
     logindialog.ui \
@@ -37,3 +39,6 @@ FORMS += \
 
 DISTFILES += \
     userlog.xml
+
+RESOURCES += \
+    images.qrc

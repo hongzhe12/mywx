@@ -46,7 +46,7 @@ public:
 "    border-style: sunken;\n"
 "}\n"
 ""));
-        label->setPixmap(QPixmap(QString::fromUtf8("images/login.jpg")));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/images/login.jpg")));
         userLineEdit = new QLineEdit(LoginDialog);
         userLineEdit->setObjectName(QString::fromUtf8("userLineEdit"));
         userLineEdit->setGeometry(QRect(100, 220, 113, 20));

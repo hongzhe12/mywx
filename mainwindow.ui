@@ -6,14 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>741</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="sendPushButton">
+    <property name="geometry">
+     <rect>
+      <x>665</x>
+      <y>476</y>
+      <width>75</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>发 送(S)</string>
+    </property>
+   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -22,11 +41,6 @@
       <width>60</width>
       <height>500</height>
      </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QFrame {
-    border-style: sunken;
-}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -38,7 +52,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/bar.jpg</pixmap>
+     <pixmap resource="images.qrc">:/images/bar.jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -60,23 +74,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/search.jpg</pixmap>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="searchPushButton">
-    <property name="geometry">
-     <rect>
-      <x>74</x>
-      <y>25</y>
-      <width>191</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
+     <pixmap resource="images.qrc">:/images/search.jpg</pixmap>
     </property>
    </widget>
    <widget class="QTableWidget" name="userListTableWidget">
@@ -90,7 +88,6 @@
     </property>
     <property name="font">
      <font>
-      <family>微软雅黑</family>
       <pointsize>14</pointsize>
      </font>
     </property>
@@ -112,25 +109,11 @@
     <attribute name="verticalHeaderVisible">
      <bool>false</bool>
     </attribute>
-   </widget>
-   <widget class="QLabel" name="userLabel">
-    <property name="geometry">
-     <rect>
-      <x>311</x>
-      <y>1</y>
-      <width>121</width>
-      <height>62</height>
-     </rect>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
+    <column>
+     <property name="text">
+      <string>在 线 好 友</string>
+     </property>
+    </column>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
@@ -151,7 +134,38 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/title.jpg</pixmap>
+     <pixmap resource="images.qrc">:/images/title.jpg</pixmap>
+    </property>
+   </widget>
+   <widget class="QLabel" name="userLabel">
+    <property name="geometry">
+     <rect>
+      <x>311</x>
+      <y>1</y>
+      <width>121</width>
+      <height>62</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>04b_21</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QTextBrowser" name="chatTextBrowser">
@@ -162,22 +176,6 @@
       <width>431</width>
       <height>300</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="transPushButton">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>375</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label_5">
@@ -199,7 +197,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>images/tool.jpg</pixmap>
+     <pixmap resource="images.qrc">:/images/tool.jpg</pixmap>
     </property>
    </widget>
    <widget class="QTextEdit" name="chatTextEdit">
@@ -212,49 +210,54 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="sendPushButton">
+   <widget class="QPushButton" name="searchPushButton">
     <property name="geometry">
      <rect>
-      <x>665</x>
-      <y>476</y>
-      <width>75</width>
-      <height>25</height>
+      <x>74</x>
+      <y>25</y>
+      <width>191</width>
+      <height>26</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>微软雅黑</family>
-      <pointsize>10</pointsize>
-     </font>
-    </property>
     <property name="text">
-     <string>发送(S)</string>
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <zorder>label_5</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>searchPushButton</zorder>
-   <zorder>userListTableWidget</zorder>
-   <zorder>userLabel</zorder>
-   <zorder>label_3</zorder>
-   <zorder>chatTextBrowser</zorder>
-   <zorder>transPushButton</zorder>
+   <widget class="QPushButton" name="transPushButton">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>375</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>chatTextEdit</zorder>
    <zorder>sendPushButton</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>userListTableWidget</zorder>
+   <zorder>label_3</zorder>
+   <zorder>userLabel</zorder>
+   <zorder>chatTextBrowser</zorder>
+   <zorder>label_5</zorder>
+   <zorder>searchPushButton</zorder>
+   <zorder>transPushButton</zorder>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>17</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="images.qrc"/>
+ </resources>
  <connections/>
 </ui>
