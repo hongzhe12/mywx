@@ -28,7 +28,11 @@ HEADERS += \
     filecntdlg.h \
     filesrvdlg.h \
     logindialog.h \
-    mainwindow.h
+    mainwindow.h \
+    ui_filecntdlg.h \
+    ui_filesrvdlg.h \
+    ui_logindialog.h \
+    ui_mainwindow.h
 
 FORMS += \
     filecntdlg.ui \
