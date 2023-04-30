@@ -23,8 +23,8 @@ void LoginDialog::on_loginPushButton_clicked()
 // 实现登录验证功能
 void LoginDialog::showWeiChatWindow()
 {
-    //    QFile file("userlog.xml"); // 创建xml对象
-    QFile file("C:\\Users\\hongz\\Documents\\mywx\\userlog.xml"); // 创建xml对象
+    QFile file("userlog.xml"); // 创建xml对象
+    //    QFile file("C:\\Users\\hongz\\Documents\\mywx\\userlog.xml"); // 创建xml对象
 
     file.open(QIODevice::ReadOnly);
     mydoc.setContent(&file); // 将xml对象赋给Qt文档句柄
