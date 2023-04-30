@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "filesrvdlg.h"
+#include "filecntdlg.h"
 
 MainWindow::MainWindow(QWidget* parent):
     QMainWindow(parent),
@@ -20,8 +22,8 @@ void MainWindow::initMainWindow()
     myUdpPort = 23232;
     myUdpSocket->bind(myUdpPort, QUdpSocket::ShareAddress | QUdpSocket::ReuseAddressHint);
     connect(myUdpSocket, SIGNAL(readyRead()), this, SLOT(recvAndProcessChatMsg()));
-    //    myfsrv = new FileSrvDlg(this);
-    //    connect(myfsrv, SIGNAL(sendFileName(QString)), this, SLOT(getSfileName(QString)));
+    myfsrv = new FileSrvDlg(this);
+    connect(myfsrv, SIGNAL(sendFileName(QString)), this, SLOT(getSfileName(QString)));
 }
 
 void MainWindow::on_sendPushButton_clicked()
@@ -100,7 +102,7 @@ void MainWindow::recvAndProcessChatMsg()
                 read >> name >> hostip >> rname;
                 if(myname == rname)
                 {
-                    //                    myfsrv->cntRefused();
+                    myfsrv->cntRefused();
                 }
                 break;
         }
@@ -170,13 +172,41 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
 void MainWindow::getSfileName(QString fname)
 {
+    myFileName = fname;
+    int row = ui->userListTableWidget->currentRow();
+    QString rmtName = ui->userListTableWidget->item(row, 0)->text();
+    sendChatMsg(SfileName, rmtName);
 }
 
 void MainWindow::on_transPushButton_clicked()
 {
+    if(ui->userListTableWidget->selectedItems().isEmpty())
+    {
+        QMessageBox::warning(0, tr("选择好友"), tr("请先选择文件接收方!"), QMessageBox::Ok);
+        return;
+    }
+    myfsrv->show();
 }
 
 void MainWindow::recvFileName(QString name, QString hostip, QString rmtname, QString filename)
 {
-
+    if(myname == rmtname)
+    {
+        int result = QMessageBox::information(this, tr("收到文件"), tr("好友 %1 给您发文件：\r\n%2，是否接收？").arg(name).arg(filename), QMessageBox::Yes, QMessageBox::No);
+        if(result == QMessageBox::Yes)
+        {
+            QString fname = QFileDialog::getSaveFileName(0, tr("保 存"), filename);
+            if(!fname.isEmpty())
+            {
+                FileCntDlg* fcnt = new FileCntDlg(this);
+                fcnt->getLocPath(fname);
+                fcnt->getSrvAddr(QHostAddress(hostip));
+                fcnt->show();
+            }
+        }
+        else
+        {
+            sendChatMsg(RefFile, name);
+        }
+    }
 }
